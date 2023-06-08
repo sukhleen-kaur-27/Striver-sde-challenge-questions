@@ -1,4 +1,4 @@
-// set max array zero question
+// set matrix zero question
 // main function for input not created
 #include <bits/stdc++.h>
 
