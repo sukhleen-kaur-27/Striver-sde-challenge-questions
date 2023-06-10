@@ -1,0 +1,17 @@
+// O(n) solution using kadane's algorithm
+// main function not created
+long long maxi = INT_MIN;
+long long sum = 0;
+for (int i = 0; i < n; i++){
+  sum +=arr[i];
+  if (sum>maxi){
+    maxi = sum;
+  }
+  if (sum<0) {
+    sum = 0;
+  }
+}
+if (maxi<0) maxi=0; // only is sum is supposed to be zero in case of only negative element present
+  return maxi;
+
+   
