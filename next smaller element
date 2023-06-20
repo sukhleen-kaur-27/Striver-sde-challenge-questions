@@ -1,0 +1,50 @@
+// O(N) time complexity for optimal solution 
+// O(N^2) for brute force solution
+
+#include<bits/stdc++.h>
+
+vector<int> nextSmallerElement(vector<int> &arr, int n)
+{
+    // Write your code here.
+    // optimal solution
+
+    stack<int> st;
+    vector<int> ans(n,-1);
+    st.push(arr[n-1]);
+
+    for(int i=n-2; i>=0; i--){
+        if(arr[i]>st.top()){
+            ans[i]= st.top();
+            st.push(arr[i]);
+        }
+        else{
+            while(!st.empty() && arr[i]<=st.top()){
+                st.pop();
+            }
+            if(!st.empty()){
+                ans[i] = st.top();
+            }
+            st.push(arr[i]);
+        }
+    }
+    return ans;
+
+    // brute force solution
+    // vector<int> ans;
+    // for(int i=0; i<n; i++){
+    //     int mini = INT_MAX;
+    //     for(int j=i+1; j<n; j++){
+    //         if((arr[i]>arr[j]) && (arr[j]<mini)){
+    //             mini = arr[j];
+    //             break;
+    //         }
+    //     }
+    //     if(mini == INT_MAX){
+    //         ans.push_back(-1);
+    //     }
+    //     else{
+    //         ans.push_back(mini);
+    //     }
+    // }
+    // return ans;
+}
